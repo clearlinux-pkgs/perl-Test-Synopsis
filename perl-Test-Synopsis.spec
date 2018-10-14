@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Synopsis
 Version  : 0.15
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/Z/ZO/ZOFFIX/Test-Synopsis-0.15.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZO/ZOFFIX/Test-Synopsis-0.15.tar.gz
 Summary  : 'Test your SYNOPSIS code'
@@ -20,7 +20,7 @@ Test your SYNOPSIS code
 %package dev
 Summary: dev components for the perl-Test-Synopsis package.
 Group: Development
-Provides: perl-Test-Synopsis-devel
+Provides: perl-Test-Synopsis-devel = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-Synopsis package.
@@ -52,9 +52,9 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -63,7 +63,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Test/Synopsis.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Test/Synopsis.pm
 
 %files dev
 %defattr(-,root,root,-)
