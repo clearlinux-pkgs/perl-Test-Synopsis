@@ -4,12 +4,13 @@
 #
 Name     : perl-Test-Synopsis
 Version  : 0.15
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/Z/ZO/ZOFFIX/Test-Synopsis-0.15.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZO/ZOFFIX/Test-Synopsis-0.15.tar.gz
 Summary  : 'Test your SYNOPSIS code'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-Test-Synopsis-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -24,6 +25,14 @@ Provides: perl-Test-Synopsis-devel = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-Synopsis package.
+
+
+%package license
+Summary: license components for the perl-Test-Synopsis package.
+Group: Default
+
+%description license
+license components for the perl-Test-Synopsis package.
 
 
 %prep
@@ -51,6 +60,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-Synopsis
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-Synopsis/LICENSE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -63,8 +74,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/Test/Synopsis.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Test/Synopsis.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Test::Synopsis.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Test-Synopsis/LICENSE
