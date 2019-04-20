@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-Synopsis
 Version  : 0.15
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/Z/ZO/ZOFFIX/Test-Synopsis-0.15.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZO/ZOFFIX/Test-Synopsis-0.15.tar.gz
-Summary  : 'Test your SYNOPSIS code'
+Summary  : Test your SYNOPSIS code
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Test-Synopsis-license = %{version}-%{release}
@@ -22,6 +22,7 @@ Test your SYNOPSIS code
 Summary: dev components for the perl-Test-Synopsis package.
 Group: Development
 Provides: perl-Test-Synopsis-devel = %{version}-%{release}
+Requires: perl-Test-Synopsis = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-Synopsis package.
