@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Synopsis
 Version  : 0.16
-Release  : 27
+Release  : 28
 URL      : https://cpan.metacpan.org/authors/id/Z/ZO/ZOFFIX/Test-Synopsis-0.16.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZO/ZOFFIX/Test-Synopsis-0.16.tar.gz
 Summary  : 'Test your SYNOPSIS code'
